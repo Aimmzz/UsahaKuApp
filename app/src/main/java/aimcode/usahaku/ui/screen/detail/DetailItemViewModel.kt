@@ -1,7 +1,7 @@
 package aimcode.usahaku.ui.screen.detail
 
 import aimcode.usahaku.data.ItemRepository
-import aimcode.usahaku.model.Item
+import aimcode.usahaku.model.product.Product1
 import aimcode.usahaku.model.OrderItem
 import aimcode.usahaku.ui.common.UiState
 import androidx.lifecycle.ViewModel
@@ -25,9 +25,9 @@ class DetailItemViewModel(
         }
     }
 
-    fun addToCart(item: Item, count: Int) {
+    fun addToCart(product1: Product1, count: Int) {
         viewModelScope.launch {
-            repository.updateOrderItem(item.id, count)
+            repository.updateOrderItem(product1.id, count)
         }
     }
 }

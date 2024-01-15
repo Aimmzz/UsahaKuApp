@@ -1,4 +1,4 @@
-package aimcode.usahaku.ui.screen.home
+package aimcode.usahaku.ui.screen.product
 
 import aimcode.usahaku.data.ItemRepository
 import aimcode.usahaku.model.OrderItem
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
-class HomeViewModel(
+class ProductViewModel(
     private val repository: ItemRepository
 ): ViewModel() {
     private val _uiState: MutableStateFlow<UiState<List<OrderItem>>> = MutableStateFlow(UiState.Loading)

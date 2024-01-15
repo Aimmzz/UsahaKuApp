@@ -4,8 +4,8 @@ import aimcode.usahaku.ui.navigation.NavigationItem
 import aimcode.usahaku.ui.navigation.Screen
 import aimcode.usahaku.ui.screen.cart.CartScreen
 import aimcode.usahaku.ui.screen.detail.DetailItemScreen
-import aimcode.usahaku.ui.screen.history.HistoryScreen
 import aimcode.usahaku.ui.screen.home.HomeScreen
+import aimcode.usahaku.ui.screen.product.ProductScreen
 import aimcode.usahaku.ui.theme.UsahaKuTheme
 import android.content.Context
 import android.content.Intent
@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.runtime.Composable
@@ -52,8 +53,8 @@ fun UsahaKuApp(
             startDestination = Screen.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route) {
-                HomeScreen(
+            composable(Screen.Product.route) {
+                ProductScreen(
                     navigateToDetail = { itemId ->
                         navController.navigate(Screen.DetailItem.createRoute(itemId))
                     }
@@ -67,8 +68,8 @@ fun UsahaKuApp(
                     }
                 )
             }
-            composable(Screen.History.route) {
-                HistoryScreen()
+            composable(Screen.Home.route) {
+                HomeScreen()
             }
             composable(
                 route = Screen.DetailItem.route,
@@ -128,14 +129,14 @@ private fun BottomBar(
                 screen = Screen.Home
             ),
             NavigationItem(
+                title = stringResource(R.string.menu_product),
+                icon = Icons.Default.List,
+                screen = Screen.Product
+            ),
+            NavigationItem(
                 title = stringResource(R.string.menu_cart),
                 icon = Icons.Default.ShoppingCart,
                 screen = Screen.Cart
-            ),
-            NavigationItem(
-                title = stringResource(R.string.menu_profile),
-                icon = Icons.Default.Menu,
-                screen = Screen.History
             ),
         )
         navigationItems.map { item ->

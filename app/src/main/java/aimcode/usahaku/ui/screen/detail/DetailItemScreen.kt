@@ -51,13 +51,13 @@ fun DetailItemScreen(
             is UiState.Success -> {
                 val data = uiState.data
                 DetailContent(
-                    data.item.image,
-                    data.item.title,
-                    data.item.requiredPoint,
+                    data.product1.image,
+                    data.product1.title,
+                    data.product1.requiredPoint,
                     data.count,
                     onBackClick = navigateBack,
                     onAddToCart = { count ->
-                        viewModel.addToCart(data.item, count)
+                        viewModel.addToCart(data.product1, count)
                         navigateToCart()
                     }
                 )

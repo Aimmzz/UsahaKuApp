@@ -21,7 +21,7 @@ class CartViewModel(
             repository.getAddedOrderItems()
                 .collect { orderItem ->
                     val totalRequiredPoint =
-                        orderItem.sumOf { it.item.requiredPoint * it.count }
+                        orderItem.sumOf { it.product1.requiredPoint * it.count }
                     _uiState.value = UiState.Success(CartState(orderItem, totalRequiredPoint))
                 }
         }

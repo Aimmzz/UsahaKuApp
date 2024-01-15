@@ -12,7 +12,7 @@ class ItemRepository {
 
     init {
         if (orderItems.isEmpty()) {
-            ItemDataSource.dummyItem.forEach {
+            ItemDataSource.dummyProduct1s.forEach {
                 orderItems.add(OrderItem(it, 0))
             }
         }
@@ -24,16 +24,16 @@ class ItemRepository {
 
     fun getOrderItemById(itemId: Long): OrderItem {
         return orderItems.first {
-            it.item.id == itemId
+            it.product1.id == itemId
         }
     }
 
     fun updateOrderItem(itemId: Long, newCountValue: Int): Flow<Boolean> {
-        val index = orderItems.indexOfFirst { it.item.id == itemId }
+        val index = orderItems.indexOfFirst { it.product1.id == itemId }
         val result = if (index >= 0) {
             val orderItem = orderItems[index]
             orderItems[index] =
-                orderItem.copy(item = orderItem.item, count = newCountValue)
+                orderItem.copy(product1 = orderItem.product1, count = newCountValue)
             true
         } else {
             false

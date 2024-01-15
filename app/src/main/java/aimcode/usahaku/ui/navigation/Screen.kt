@@ -1,10 +1,11 @@
 package aimcode.usahaku.ui.navigation
 
 sealed class Screen(val route: String) {
-    object Home : Screen("home")
+    object Product : Screen("product")
     object Cart : Screen("cart")
-    object History : Screen("history")
-    object DetailItem : Screen("home/{itemId}") {
-        fun createRoute(itemId: Long) = "home/$itemId"
+    object Home : Screen("home")
+    object AddItem: Screen("AddItem")
+    object DetailItem : Screen("product/{itemId}") {
+        fun createRoute(itemId: Long) = "product/$itemId"
     }
 }

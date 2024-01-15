@@ -91,12 +91,12 @@ fun CartContent(
             verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier.weight(weight = 1f)
         ) {
-            items(state.orderReward, key = { it.item.id }) { item ->
+            items(state.orderReward, key = { it.product1.id }) { item ->
                 CartItem(
-                    itemId = item.item.id,
-                    image = item.item.image,
-                    title = item.item.title,
-                    totalPoint = item.item.requiredPoint * item.count,
+                    itemId = item.product1.id,
+                    image = item.product1.image,
+                    title = item.product1.title,
+                    totalPoint = item.product1.requiredPoint * item.count,
                     count = item.count,
                     onProductCountChanged = onProductCountChanged,
                 )
